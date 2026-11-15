@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Novo chamado | Thindesk</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<main class="container py-4">
+    <h1>Novo chamado</h1>
+    <form class="row g-3" th:action="@{/chamados/novo}" method="post">
+        <label class="col-12">Descrição<textarea name="descricao" class="form-control" required></textarea></label>
+        <label class="col-md-6">Tipo<input name="tipo" class="form-control" required></label>
+        <label class="col-md-6">Status
+            <select name="status" class="form-select" required>
+                <option value="ABERTO">Aberto</option>
+                <option value="EM_ANDAMENTO">Em andamento</option>
+                <option value="CONCLUIDO">Concluído</option>
+            </select>
+        </label>
+        <label class="col-md-6">Técnico<input name="tecnico" class="form-control" required></label>
+        <label class="col-md-6">Usuário<input name="usuario" class="form-control" required></label>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Salvar chamado</button>
+            <a class="btn btn-outline-secondary" th:href="@{/chamados}">Voltar</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>
